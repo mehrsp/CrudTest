@@ -1,6 +1,6 @@
 Hi,
 
-There is a WebAPI for CRUD testing as you asked me to implement.
+There is a WebAPI for CRUD testing .
 It uses the DB-first aproach, so please create a CRUDTEST database and add a table with the following script
 (Unfortunately, I did not have enough time to make package)
 please set yor connectionstring for both ReadModel and WriteModel in appsetting.json
