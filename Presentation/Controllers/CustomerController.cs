@@ -21,8 +21,6 @@ public class CustomerController : Controller
         return  _readcustomerService.GetAll();
     }
 
- 
-
     [HttpGet("~/GetCustomer")]
     public CustomerViewModel GetById(int id)
     {

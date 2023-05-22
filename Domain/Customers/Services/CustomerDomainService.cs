@@ -136,8 +136,8 @@ public class CustomerDomainService:ICustomerDomainService
     public  List<Customer> MocList()
     {
         var  sessions = new List<Customer>();
-        sessions.Add(new Customer("A", "B", new DateTime(2016, 7, 2), "(123) 456-7890", "Test@gmail.com", "122105155", this));
-        sessions.Add(new Customer("A1", "B1", new DateTime(2016, 7, 1), "123-456-7890", "Test1@gmail.com","892145655", this));
+        sessions.Add(new Customer("A", "B", new DateTime(2016, 7, 2), "(123) 456-7890", "Test@gmail.com", "122105155"));
+        sessions.Add(new Customer("A1", "B1", new DateTime(2016, 7, 1), "123-456-7890", "Test1@gmail.com","892145655"));
         
         return sessions;
     }
@@ -145,7 +145,7 @@ public class CustomerDomainService:ICustomerDomainService
 
     public  Customer MocCustomer()
     {
-        var session = new Customer("A1", "B1", new DateTime(2016, 7, 1), "123-456-7890", "Test1@gmail.com", "892145655", this);
+        var session = new Customer("A1", "B1", new DateTime(2016, 7, 1), "123-456-7890", "Test1@gmail.com", "892145655");
 
         return session;
     }

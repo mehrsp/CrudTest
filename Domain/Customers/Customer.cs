@@ -11,19 +11,18 @@ public class Customer:AggregateRoot
             
     }
     public Customer(string firstname,string lastname, DateTime dateofbirth,
-        string phonenumber,string email,string bankacountnumber,ICustomerDomainService customerDomainService)
+        string phonenumber,string email,string bankacountnumber)
     {
-        _customerDomainService = customerDomainService;
-        _customerDomainService.ValidateCustomer(firstname,lastname,dateofbirth,email,0);
+        
        
 
 
-        ChangeFirstName(firstname); 
+       ChangeFirstName(firstname); 
        ChangeLastname(lastname);    
        ChangeDateOfBirth(dateofbirth);    
-       ChangePhoneNumber(phonenumber,customerDomainService);    
-       ChangeEmail(email, customerDomainService);    
-       ChangeBankAccountNumber(bankacountnumber, customerDomainService);
+       ChangePhoneNumber(phonenumber);    
+       ChangeEmail(email);    
+       ChangeBankAccountNumber(bankacountnumber);
        AddEvent(new CustomerCreatedEvent(Id,firstname,lastname,
            dateofbirth,phonenumber,email,bankacountnumber));
     }
@@ -44,24 +43,19 @@ public class Customer:AggregateRoot
         DateOfBirth = dateofbirth;
     }
     
-    public void ChangePhoneNumber(string phonenumber, ICustomerDomainService customerDomainService)
+    public void ChangePhoneNumber(string phonenumber)
     {
-        if(!customerDomainService.ValidatePhoneNumber(phonenumber))
-            throw new Exception("Phone Number is not Correct");
         PhoneNumber = phonenumber;
     }
     
-    public void ChangeEmail(string email, ICustomerDomainService customerDomainService)
+    public void ChangeEmail(string email)
     {
-        if (!customerDomainService.ValidateEmail(email))
-            throw new Exception("Email is not Valid");
+      
         Email = email;
     }
     
-    public void ChangeBankAccountNumber(string bankacountnumber, ICustomerDomainService customerDomainService)
+    public void ChangeBankAccountNumber(string bankacountnumber)
     {
-        if (!customerDomainService.ValidateBAccNumber(bankacountnumber))
-            throw new Exception("Bank account number is not Valid");
         BankAccountNumber = bankacountnumber;
     }
 
@@ -74,9 +68,9 @@ public class Customer:AggregateRoot
        ChangeFirstName(firstname); 
        ChangeLastname(lastname);    
        ChangeDateOfBirth(dateofbirth);    
-       ChangePhoneNumber(phonenumber,customerDomainService);    
-       ChangeEmail(email, customerDomainService);    
-       ChangeBankAccountNumber(bankacountnumber, customerDomainService);
+       ChangePhoneNumber(phonenumber);    
+       ChangeEmail(email);    
+       ChangeBankAccountNumber(bankacountnumber);
        AddEvent(new CustomerUpdatedEvent(Id,firstname,lastname,
            dateofbirth,phonenumber,email,bankacountnumber));
     }

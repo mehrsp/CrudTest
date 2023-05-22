@@ -6,7 +6,6 @@ public interface ICustomerRepository
 {
     
     void CreateAsync(Customer command);
-
     void UpdateAsync(Customer customer, UpdateCommand command, ICustomerDomainService _customerDomainService);
     Customer GetById(int id);
     void DeleteAsync(Customer command);

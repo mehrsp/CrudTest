@@ -14,11 +14,6 @@ public class CustomerRepository:ICustomerRepository
         _context = context;
     }
 
-    //public async Task<List<Customer>> GetCustomerByName(string fname,string lname,DateTime bd)
-    //{
-    //    return await _context.Customer.Where(x => x.Firstname == fname && x.Lastname==lname && x.DateOfBirth==bd).ToListAsync();
-    //}
-
     public void  CreateAsync(Customer command)
     {
          _context.Customer.Add(command);
@@ -34,11 +29,9 @@ public class CustomerRepository:ICustomerRepository
 
     public void DeleteAsync(Customer command)
     {
-
        
         _context.Customer.Remove(command);
          SaveDb(_context);
-
     }
 
     public   Customer GetById(int id)
@@ -49,16 +42,12 @@ public class CustomerRepository:ICustomerRepository
     public List<Customer> GetAllCustomers()
     {
         return  _context.Customer.ToList();
-
     }
 
-  
-  
 
     private void SaveDb(DbContext ctx)
     {
         ctx.SaveChanges();
-
     }
 
   
